@@ -6,10 +6,10 @@ function [modelname,paths,opts,prev_ident_pars] = options()
 
 %=================== BASIC OPTIONS ("CHOOSE WHAT TO DO") ==================
 %%% (1) CHOOSE MODEL TO ANALYSE: 
-modelname ='C2M';    % Name of a .mat file placed in the 'models' folder 
+modelname ='PK_unknown_input';    % Name of a .mat file placed in the 'models' folder 
   
 %%% (2) CHOOSE TYPE OF ANALYSIS:
-opts.algorithm = 2;  % Choose one of the following:
+opts.algorithm = 6;  % Choose one of the following:
    %--- Structural Identifiability and Observability (SIO) algorithms:
       % 1: FISPO (default) -- applicable to nonlinear models in general
       % 2: Prob_Obs_Test   -- applicable to rational models
@@ -23,7 +23,7 @@ opts.algorithm = 2;  % Choose one of the following:
 %%% (3) MAIN STRUCTURAL IDENTIFIABILITY & OBSERVABILITY (SIO) OPTIONS:
 opts.maxLietime = 100;     % In FISPO, max. time allowed for calculating 1 Lie derivative.
 opts.nnzDerU    = inf;     % In FISPO, numbers of nonzero derivatives of the measured inputs (u); may be 'inf'
-opts.nnzDerW    = 0;       % In FISPO and ORC-DF, numbers of nonzero derivatives of the unmeasured inputs (w); may be 'inf'
+opts.nnzDerW    = 1;       % In FISPO and ORC-DF, numbers of nonzero derivatives of the unmeasured inputs (w); may be 'inf'
 prev_ident_pars = [];      % parameters assumed known, or already classified as identifiable. Example:
 % syms p2 p5
 % prev_ident_pars = [p2 p5];
@@ -45,10 +45,10 @@ opts.multiexp_user_nnzDerW = 0;     % Set manually the number of non-zero unknow
 opts.multiexp_nnzDerW      = [1 0]; % Number of non-zero unknown input derivatives in each experiment (Rows=inputs;Columns=experiments).
 
 %=========== LIE SYMMETRIES & REPARAMETERIZATION OPTIONS: =================  
-opts.ansatz     = 2; % Type of Ansatz: %  uni -> Univariate (1)
+opts.ansatz     = 3; % Type of Ansatz: %  uni -> Univariate (1)
                                        %  par -> Partially variate (2)
                                        %  multi -> Multivariate (3)
-opts.degree     = 2; % Degree of Ansatz Polynomial
+opts.degree     = 3; % Degree of Ansatz Polynomial
 opts.tmax       = 4; % Maximum degree of Lie series
 opts.ode_n      = 1; % (Only in Matlab R2020a and later:) use ode solver (=1) or not (=0)
 opts.use_existing_results = 0; % if the model has already been analysed with STRIKE-GOLDD (=1) or not (=0)
