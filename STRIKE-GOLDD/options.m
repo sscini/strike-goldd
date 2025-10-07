@@ -6,7 +6,7 @@ function [modelname,paths,opts,prev_ident_pars] = options()
 
 %=================== BASIC OPTIONS ("CHOOSE WHAT TO DO") ==================
 %%% (1) CHOOSE MODEL TO ANALYSE: 
-modelname ='PK_unknown_input';    % Name of a .mat file placed in the 'models' folder 
+modelname ='BIG_known_input';    % Name of a .mat file placed in the 'models' folder 
   
 %%% (2) CHOOSE TYPE OF ANALYSIS:
 opts.algorithm = 6;  % Choose one of the following:
@@ -23,7 +23,7 @@ opts.algorithm = 6;  % Choose one of the following:
 %%% (3) MAIN STRUCTURAL IDENTIFIABILITY & OBSERVABILITY (SIO) OPTIONS:
 opts.maxLietime = 100;     % In FISPO, max. time allowed for calculating 1 Lie derivative.
 opts.nnzDerU    = inf;     % In FISPO, numbers of nonzero derivatives of the measured inputs (u); may be 'inf'
-opts.nnzDerW    = 1;       % In FISPO and ORC-DF, numbers of nonzero derivatives of the unmeasured inputs (w); may be 'inf'
+opts.nnzDerW    = 0;       % In FISPO and ORC-DF, numbers of nonzero derivatives of the unmeasured inputs (w); may be 'inf'
 prev_ident_pars = [];      % parameters assumed known, or already classified as identifiable. Example:
 % syms p2 p5
 % prev_ident_pars = [p2 p5];
