@@ -21,7 +21,7 @@ opts.algorithm = 1;  % Choose one of the following:
 
 %================== ADDITIONAL OPTIONS FOR SIO ANALYSIS ===================     
 %%% (3) MAIN STRUCTURAL IDENTIFIABILITY & OBSERVABILITY (SIO) OPTIONS:
-opts.maxLietime = 200;     % In FISPO, max. time allowed for calculating 1 Lie derivative.
+opts.maxLietime = 500;     % In FISPO, max. time allowed for calculating 1 Lie derivative.
 opts.nnzDerU    = inf;     % In FISPO, numbers of nonzero derivatives of the measured inputs (u); may be 'inf'
 opts.nnzDerW    = 0;       % In FISPO and ORC-DF, numbers of nonzero derivatives of the unmeasured inputs (w); may be 'inf'
 prev_ident_pars = [];      % parameters assumed known, or already classified as identifiable. Example:
