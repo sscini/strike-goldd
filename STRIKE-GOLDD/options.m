@@ -6,10 +6,10 @@ function [modelname,paths,opts,prev_ident_pars] = options()
 
 %=================== BASIC OPTIONS ("CHOOSE WHAT TO DO") ==================
 %%% (1) CHOOSE MODEL TO ANALYSE: 
-modelname ='BIG_known_input';    % Name of a .mat file placed in the 'models' folder 
+modelname ='twopoolCa_SSC_withouthill';    % Name of a .mat file placed in the 'models' folder 
   
 %%% (2) CHOOSE TYPE OF ANALYSIS:
-opts.algorithm = 6;  % Choose one of the following:
+opts.algorithm = 1;  % Choose one of the following:
    %--- Structural Identifiability and Observability (SIO) algorithms:
       % 1: FISPO (default) -- applicable to nonlinear models in general
       % 2: Prob_Obs_Test   -- applicable to rational models
@@ -21,7 +21,7 @@ opts.algorithm = 6;  % Choose one of the following:
 
 %================== ADDITIONAL OPTIONS FOR SIO ANALYSIS ===================     
 %%% (3) MAIN STRUCTURAL IDENTIFIABILITY & OBSERVABILITY (SIO) OPTIONS:
-opts.maxLietime = 100;     % In FISPO, max. time allowed for calculating 1 Lie derivative.
+opts.maxLietime = 200;     % In FISPO, max. time allowed for calculating 1 Lie derivative.
 opts.nnzDerU    = inf;     % In FISPO, numbers of nonzero derivatives of the measured inputs (u); may be 'inf'
 opts.nnzDerW    = 0;       % In FISPO and ORC-DF, numbers of nonzero derivatives of the unmeasured inputs (w); may be 'inf'
 prev_ident_pars = [];      % parameters assumed known, or already classified as identifiable. Example:
